@@ -33,17 +33,17 @@ void setVal(struct myArray *array)
   }
 }
 void display(struct myArray *array)
-{
+{printf("\n Display:  \n");
   for (int i = 0; i < array->used_size; i++)
   {
-    printf("%d \n", (array->ptr)[i]);
+    printf("%d \t", (array->ptr)[i]);
   }
 }
 
 int main()
 {
   struct myArray marks;
-  createArray(&marks, 10, 4);
+  createArray(&marks, 10, 6);
   setVal(&marks);
   display(&marks);
 
