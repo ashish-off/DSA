@@ -44,7 +44,21 @@ void insertAtIndex(struct Node **head, int data, int index){
   
 }
 
+// insert at end
 
+void insertAtEnd(struct Node **head , int data){
+  struct Node *newNode = (struct Node*) malloc( sizeof(struct Node));
+  newNode -> data = data;
+  newNode -> next = NULL;
+  struct Node *temp = *head;
+
+  while (temp -> next != NULL)
+  {
+    temp = temp -> next;
+  }
+  temp -> next = newNode;
+
+}
 
 // Function to traverse and display the linked list
 void display(struct Node *ptr)
@@ -97,8 +111,12 @@ int main()
   // printf("\n after inserting at beg : \n");
   // display(head);
   
-  printf("\n after inserting at index : \n");
-  insertAtIndex(&head, 222,3);
+  // printf("\n after inserting at index : \n");
+  // insertAtIndex(&head, 222,3);
+  // display(head);
+  
+  printf("\n inserting at end : \n");
+  insertAtEnd(&head,888);
   display(head);
 
   return 0;
