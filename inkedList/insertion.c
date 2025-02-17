@@ -52,6 +52,8 @@ void insertAtEnd(struct Node **head , int data){
   newNode -> next = NULL;
   struct Node *temp = *head;
 
+  
+
   while (temp -> next != NULL)
   {
     temp = temp -> next;
@@ -72,36 +74,10 @@ void display(struct Node *ptr)
 
 int main()
 {
-  struct Node *head;
-  struct Node *second;
-  struct Node *third;
-  struct Node *four;
-
-  // Allocate memory for nodes
-  head = (struct Node *)malloc(sizeof(struct Node));
-  second = (struct Node *)malloc(sizeof(struct Node));
-  third = (struct Node *)malloc(sizeof(struct Node));
-  four = (struct Node *)malloc(sizeof(struct Node));
-
-  // Check if memory allocation succeeded
-  if (head == NULL || second == NULL || third == NULL || four == NULL)
-  {
-    printf("Memory allocation failed!\n");
-    return 1; // Exit the program with an error code
-  }
-
-  // Link nodes
-  head->data = 10;
-  head->next = second;
-
-  second->data = 20;
-  second->next = third;
-
-  third->data = 30;
-  third->next = four;
-
-  four->data = 40;
-  four->next = NULL; // Terminate the linked list
+  struct Node *head = NULL;
+insertAtBeg(&head, 1);
+insertAtBeg(&head, 4);
+insertAtBeg(&head, 6);
 
   // Traverse and display the linked list
   display(head);
