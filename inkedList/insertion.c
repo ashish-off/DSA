@@ -88,13 +88,13 @@ int main()
   // printf("\n after inserting at beg : \n");
   // display(head);
 
-  // printf("\n after inserting at index : \n");
-  // insertAtIndex(&head, 222,3);
-  // display(head);
-
-  printf("\n inserting at end : \n");
-  insertAtEnd(&head, 888);
+  printf("\n after inserting at index : \n");
+  insertAtIndex(&head, 222,2);
   display(head);
+
+  // printf("\n inserting at end : \n");
+  // insertAtEnd(&head, 888);
+  // display(head);
 
   return 0;
 }
