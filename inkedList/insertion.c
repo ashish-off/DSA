@@ -8,14 +8,43 @@ struct Node
   struct Node *next;
 };
 
+// inserting at beginning
 void insertAtBeg(struct Node *(*head), int data)
 {
-  struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
-  temp->next = *head;
-  temp->data = data;
-
-  *head = temp;
+  struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+  newNode->data = data;
+  newNode->next = *head;
+  *head = newNode;
 }
+
+
+// insert at index
+void insertAtIndex(struct Node **head, int data, int index){
+  struct Node *newNode = (struct Node*) malloc (sizeof(struct Node));
+  newNode -> data = data;
+  newNode -> next = NULL;
+
+  struct Node *temp = *head;
+  int i =1;
+
+  if (index ==1)
+  {
+    insertAtBeg(head, data);
+    return ;
+  }
+  
+  while (i != index -1 && temp != NULL)
+  {
+    temp = temp -> next;
+    i++;
+  }
+
+  newNode -> next = temp->next;
+  temp -> next = newNode;
+  
+}
+
+
 
 // Function to traverse and display the linked list
 void display(struct Node *ptr)
@@ -51,23 +80,25 @@ int main()
   head->data = 10;
   head->next = second;
 
-  second->data = 145;
+  second->data = 20;
   second->next = third;
 
-  third->data = 700;
+  third->data = 30;
   third->next = four;
 
-  four->data = 200;
+  four->data = 40;
   four->next = NULL; // Terminate the linked list
 
   // Traverse and display the linked list
   display(head);
 
-  printf("\n after inserting at beg \n");
-
-  insertAtBeg(&head, 999);
-
-  display(head);
+  
+  // insertAtBeg(&head, 999); // Pass the address of the head pointer
+  // printf("\n after inserting at beg : \n");
+  // display(head);
+  
+  printf("\n after inserting at index : \n");
+  insertAtIndex(&head, 222,3);
   display(head);
 
   return 0;
