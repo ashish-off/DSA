@@ -17,49 +17,51 @@ void insertAtBeg(struct Node *(*head), int data)
   *head = newNode;
 }
 
-
 // insert at index
-void insertAtIndex(struct Node **head, int data, int index){
-  struct Node *newNode = (struct Node*) malloc (sizeof(struct Node));
-  newNode -> data = data;
-  newNode -> next = NULL;
+void insertAtIndex(struct Node **head, int data, int index)
+{
+  struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+  newNode->data = data;
+  newNode->next = NULL;
 
   struct Node *temp = *head;
-  int i =1;
+  int i = 1;
 
-  if (index ==1)
+  if (index == 1)
   {
     insertAtBeg(head, data);
-    return ;
+    return;
   }
-  
-  while (i != index -1 && temp != NULL)
+
+  while (i != index - 1 && temp != NULL)
   {
-    temp = temp -> next;
+    temp = temp->next;
     i++;
   }
 
-  newNode -> next = temp->next;
-  temp -> next = newNode;
-  
+  newNode->next = temp->next;
+  temp->next = newNode;
 }
 
 // insert at end
 
-void insertAtEnd(struct Node **head , int data){
-  struct Node *newNode = (struct Node*) malloc( sizeof(struct Node));
-  newNode -> data = data;
-  newNode -> next = NULL;
+void insertAtEnd(struct Node **head, int data)
+{
+  struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+  newNode->data = data;
+  newNode->next = NULL;
+  if (*head == NULL)
+  {
+    *head = newNode;
+    return;
+  }
   struct Node *temp = *head;
 
-  
-
-  while (temp -> next != NULL)
+  while (temp->next != NULL)
   {
-    temp = temp -> next;
+    temp = temp->next;
   }
-  temp -> next = newNode;
-
+  temp->next = newNode;
 }
 
 // Function to traverse and display the linked list
@@ -75,24 +77,23 @@ void display(struct Node *ptr)
 int main()
 {
   struct Node *head = NULL;
-insertAtBeg(&head, 1);
-insertAtBeg(&head, 4);
-insertAtBeg(&head, 6);
+  insertAtBeg(&head, 1);
+  insertAtBeg(&head, 4);
+  insertAtBeg(&head, 6);
 
   // Traverse and display the linked list
   display(head);
 
-  
   // insertAtBeg(&head, 999); // Pass the address of the head pointer
   // printf("\n after inserting at beg : \n");
   // display(head);
-  
+
   // printf("\n after inserting at index : \n");
   // insertAtIndex(&head, 222,3);
   // display(head);
-  
+
   printf("\n inserting at end : \n");
-  insertAtEnd(&head,888);
+  insertAtEnd(&head, 888);
   display(head);
 
   return 0;
