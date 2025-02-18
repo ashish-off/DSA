@@ -31,7 +31,6 @@ void insertAtBegin(struct Node **head, int data)
   if (*head == NULL)
   {
     *head = newNode;
-    return;
   }
   else
   {
@@ -40,7 +39,6 @@ void insertAtBegin(struct Node **head, int data)
     *head = newNode;
   }
 }
-
 // insert at end of node
 void insertAtEnd(struct Node **head, int data)
 {
@@ -119,9 +117,9 @@ int main()
   // insertAtPosition(&head, 333,2);
   // display(head);
 
-  printf("\n inserting at end: \n");
-  insertAtEnd(&head, 3454);
-  insertAtEnd(&head, 2992);
-  insertAtEnd(&head, 4545);
-  display(head);
+  // printf("\n inserting at end: \n");
+  // insertAtEnd(&head, 3454);
+  // insertAtEnd(&head, 2992);
+  // insertAtEnd(&head, 4545);
+  // display(head);
 }
