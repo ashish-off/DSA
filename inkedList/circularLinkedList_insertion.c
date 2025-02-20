@@ -46,43 +46,52 @@ void insertAtBeginning(struct Node **head, int data)
   }
 }
 
-void insertAtEnd(struct Node** head, int data) {
-  struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
+void insertAtEnd(struct Node **head, int data)
+{
+  struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
   newNode->data = data;
   newNode->next = NULL;
 
-  if (*head == NULL) {
-      *head = newNode;
-      newNode->next = *head; 
-  } else {
-      struct Node* last = *head;
-      while (last->next != *head) {
-          last = last->next; 
-      }
-      last->next = newNode;  
-      newNode->next = *head; 
+  if (*head == NULL)
+  {
+    *head = newNode;
+    newNode->next = *head;
+  }
+  else
+  {
+    struct Node *last = *head;
+    while (last->next != *head)
+    {
+      last = last->next;
+    }
+    last->next = newNode;
+    newNode->next = *head;
   }
 }
 
-void insertAtPosition(struct Node** head, int data, int position) {
-  if (position == 0) {
-      insertAtBeginning(head, data);
-      return;
+void insertAtPosition(struct Node **head, int data, int position)
+{
+  if (position == 0)
+  {
+    insertAtBeginning(head, data);
+    return;
   }
-  struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
+  struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
   newNode->data = data;
   newNode->next = NULL;
 
-  struct Node* current = *head;
-  for (int i = 1; i < position; i++) {
-      current = current->next;
-      if (current == *head) {
-          printf("Position out of range\n");
-          return;
-      }
+  struct Node *current = *head;
+  for (int i = 1; i < position; i++)
+  {
+    current = current->next;
+    if (current == *head)
+    {
+      printf("Position out of range\n");
+      return;
+    }
   }
-  newNode->next = current->next; 
-  current->next = newNode;  
+  newNode->next = current->next;
+  current->next = newNode;
 }
 
 int main()
@@ -103,6 +112,4 @@ int main()
   // printf("\n After inserting at the position (from 0): \n");
   insertAtPosition(&head, 666, 3);
   display(head);
-
-
 }
