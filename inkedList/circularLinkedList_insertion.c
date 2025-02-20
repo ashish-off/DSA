@@ -64,6 +64,27 @@ void insertAtEnd(struct Node** head, int data) {
   }
 }
 
+void insertAtPosition(struct Node** head, int data, int position) {
+  if (position == 0) {
+      insertAtBeginning(head, data);
+      return;
+  }
+  struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
+  newNode->data = data;
+  newNode->next = NULL;
+
+  struct Node* current = *head;
+  for (int i = 1; i < position; i++) {
+      current = current->next;
+      if (current == *head) {
+          printf("Position out of range\n");
+          return;
+      }
+  }
+  newNode->next = current->next; 
+  current->next = newNode;  
+}
+
 int main()
 {
   struct Node *head = NULL;
@@ -74,9 +95,13 @@ int main()
   insertAtBeginning(&head, 30);
   display(head);
 
-  printf("\n After inserting at the end: \n");
-  insertAtEnd(&head, 40);
-  insertAtEnd(&head, 50);
+  // printf("\n After inserting at the end: \n");
+  // insertAtEnd(&head, 40);
+  // insertAtEnd(&head, 50);
+  // display(head);
+
+  // printf("\n After inserting at the position (from 0): \n");
+  insertAtPosition(&head, 666, 3);
   display(head);
 
 
