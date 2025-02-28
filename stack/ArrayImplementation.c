@@ -43,9 +43,9 @@ void display(struct Stack *stack){
   if (isEmpty(stack)){
     printf("Stack is empty, UNDERFLOW \n");
   } else {
-    printf("Stack elements are: \n");
+    printf("\n Stack elements are: ");
     for (int i = 0; i <= stack -> top; i++){
-      printf("%d \n", stack -> items[i]);
+      printf("%d \t", stack -> items[i]);
     }
   }
 }
