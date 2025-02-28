@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void insertAtInd (int arr[], int element, int index, int size, int capacity){
+void insertAtEnd (int arr[], int element, int index, int size, int capacity){
   if(index < 0 || index > size || size >= capacity) {
     printf("Invalid index\n");
   }else {
@@ -30,6 +30,6 @@ int main () {
   int element = 232;
   int index = 2;
 
-  insertAtInd(arr, element, index, size, capacity);
+  insertAtEnd(arr, element, index, size, capacity);
   displayArray(arr, size);
 }
