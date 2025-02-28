@@ -57,15 +57,15 @@ void display(struct Stack *stack)
 {
   if (isEmpty(stack))
   {
-    printf("\n Stack is empty, UNDERFLOW \n");
+    printf("Stack is empty, UNDERFLOW \n");
     return;
   }
   else
   {
-    printf("\n Stack elements are: ");
+    printf("\nStack elements are: ");
     for (int i = 0; i <= stack->top; i++)
     {
-      printf("%d \t", stack->items[i]);
+      printf("%d   ", stack->items[i]);
     }
     printf("\n");
   }
@@ -75,14 +75,14 @@ void push(struct Stack *stack, int data)
 {
   if (isFull(stack))
   {
-    printf("\n Stack is full, OVERFLOW \n");
+    printf(" Stack is full, OVERFLOW \n");
     return;
   }
   else
   {
     stack->top++;
     stack->items[stack->top] = data;
-    printf("\n %d is pushed \n", data);
+    printf("%d is pushed \n", data);
   }
 }
 
@@ -90,11 +90,11 @@ void pop(struct Stack *stack)
 {
   if (isEmpty(stack))
   {
-    printf("\n Stack is empty, UNDERFLOW \n");
+    printf("Stack is empty, UNDERFLOW \n");
     return;
   
   }else {
-    printf("\n %d is popped \n", stack->items[stack->top]);
+    printf("%d is popped \n", stack->items[stack->top]);
     stack->top--;
   }
 }
@@ -105,6 +105,15 @@ int main()
   initializeStack(&stack);
 
   push(&stack, 10);
+  push(&stack, 102);
+  push(&stack, 12);
+  push(&stack, 312);
 
   display(&stack);
+
+  pop(&stack);
+  pop(&stack);
+  display(&stack);
+
+  printf("Top element is %d \n", peek(&stack));
 }
