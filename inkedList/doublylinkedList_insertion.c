@@ -61,6 +61,7 @@ void insertAtEnd(struct Node **head, int data)
       temp = temp->next;
     }
     temp->next = newNode;
+    newNode->prev = temp;
   }
 }
 
@@ -68,10 +69,15 @@ void insertAtEnd(struct Node **head, int data)
 
 void insertAtPosition(struct Node **head, int data, int index)
 {
+  if (index < 1) {
+    printf("Invalid position. Position should be >= 1.\n");
+    return;
+}
   struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
   newNode->prev = NULL;
   newNode->next = NULL;
   newNode->data = data;
+
 
   struct Node *temp = *head;
   int i = 1;
@@ -84,7 +90,7 @@ void insertAtPosition(struct Node **head, int data, int index)
   else
   {
 
-    while (i != index - 1 && temp->next != NULL)
+    while (i != index - 1 && temp != NULL)
     {
       temp = temp->next;
       i++;

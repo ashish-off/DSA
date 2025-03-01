@@ -35,12 +35,12 @@ void insertAtBeginning(struct Node **head, int data)
   }
   else
   {
-    struct Node *temp = *head;
-    while (temp->next != *head)
+    struct Node *last = *head;
+    while (last->next != *head)
     {
-      temp = temp->next;
+      last = last->next;
     }
-    temp->next = newNode;
+    last->next = newNode;
     newNode->next = *head;
     *head = newNode;
   }
@@ -71,7 +71,13 @@ void insertAtEnd(struct Node **head, int data)
 
 void insertAtPosition(struct Node **head, int data, int position)
 {
-  if (position == 0)
+  if (position < 1)
+  {
+    printf("Invalid position. Position should be >= 1.\n");
+    return;
+  }
+
+  if (position == 1)
   {
     insertAtBeginning(head, data);
     return;
@@ -81,15 +87,21 @@ void insertAtPosition(struct Node **head, int data, int position)
   newNode->next = NULL;
 
   struct Node *current = *head;
-  for (int i = 1; i < position; i++)
+  int i = 1;
+  while (i < position - 1 && current->next != *head)
   {
     current = current->next;
-    if (current == *head)
-    {
-      printf("Position out of range\n");
-      return;
-    }
+    i++;
   }
+
+  // Check if the position is valid
+  if (i != position - 1)
+  {
+    printf("Invalid position. Position exceeds the length of the list.\n");
+    free(newNode); // Free the unused node
+    return;
+  }
+
   newNode->next = current->next;
   current->next = newNode;
 }
