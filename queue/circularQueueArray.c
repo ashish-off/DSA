@@ -18,10 +18,11 @@ void initializeQueue(struct Queue *q)
 }
 
 // Check if the queue is empty
-bool isEmpty(struct Queue *q)
-{
+bool isEmpty(struct Queue *q) {
   return q->front == -1;
 }
+//The condition q->front == -1 is independent of the circular nature of the queue and works correctly in all cases.
+
 
 // Check if the queue is full
 bool isFull(struct Queue *q)
@@ -92,7 +93,7 @@ void dequeue(struct Queue *q)
   else
   {
     item = q->items[q->front];
-    if (q->front == q->rear)
+    if (q->front == q->rear) // only one element(last element dequeued)
     {
       q->front = q->rear = -1;
     }
@@ -119,12 +120,17 @@ int main()
 
   dequeue(&q);
   dequeue(&q);
+  
+  dequeue(&q);
+  dequeue(&q);
+  dequeue(&q);
+
 
   display(&q);
 
-  enqueue(&q, 77);
-  enqueue(&q, 88);
-  enqueue(&q, 99);
-  display(&q);
+  // enqueue(&q, 77);
+  // enqueue(&q, 88);
+  // enqueue(&q, 99);
+  // display(&q);
   return 0;
 }
