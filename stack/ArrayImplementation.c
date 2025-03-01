@@ -86,6 +86,24 @@ void push(struct Stack *stack, int data)
   }
 }
 
+// without using pointers
+
+struct Stack pushstack(struct Stack stack, int data)
+{
+  if (isFull(&stack))
+  {
+    printf(" Stack is full, OVERFLOW \n");
+    return stack;
+  }
+  else
+  {
+    stack.top++;
+    stack.items[stack.top] = data;
+    printf("%d is pushed \n", data);
+    return stack;
+  }
+}
+
 void pop(struct Stack *stack)
 {
   if (isEmpty(stack))
@@ -116,4 +134,7 @@ int main()
   display(&stack);
 
   printf("Top element is %d \n", peek(&stack));
+
+  stack = pushstack(stack, 2222);
+  display(&stack);
 }
