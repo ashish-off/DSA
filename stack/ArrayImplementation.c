@@ -63,7 +63,7 @@ void display(struct Stack *stack)
   else
   {
     printf("\nStack elements are: ");
-    for (int i = 0; i <= stack->top; i++)
+    for (int i = stack->top; i >= 0  ; i--)
     {
       printf("%d   ", stack->items[i]);
     }
