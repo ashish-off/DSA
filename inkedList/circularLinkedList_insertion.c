@@ -95,7 +95,7 @@ void insertAtPosition(struct Node **head, int data, int position)
   }
 
   // Check if the position is valid
-  if (i != position - 1)
+  if (i != position - 1 || current->next == *head)
   {
     printf("Invalid position. Position exceeds the length of the list.\n");
     free(newNode); // Free the unused node
