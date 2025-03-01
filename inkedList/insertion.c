@@ -13,8 +13,16 @@ void insertAtBeg(struct Node *(*head), int data)
 {
   struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
   newNode->data = data;
-  newNode->next = *head;
-  *head = newNode;
+  newNode->next = NULL;
+  if (*head == NULL) // if the linked list is empty
+  {
+    *head = newNode;
+  }
+  else
+  {
+    newNode->next = *head;
+    *head = newNode;
+  }
 }
 
 // insert at index
@@ -89,7 +97,7 @@ int main()
   // display(head);
 
   printf("\n after inserting at index : \n");
-  insertAtIndex(&head, 222,2);
+  insertAtIndex(&head, 222, 2);
   display(head);
 
   // printf("\n inserting at end : \n");
