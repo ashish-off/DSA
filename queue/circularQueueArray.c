@@ -128,9 +128,9 @@ int main()
 
   display(&q);
 
-  // enqueue(&q, 77);
-  // enqueue(&q, 88);
-  // enqueue(&q, 99);
-  // display(&q);
+  enqueue(&q, 77);
+  enqueue(&q, 88);
+  enqueue(&q, 99);
+  display(&q);
   return 0;
 }
