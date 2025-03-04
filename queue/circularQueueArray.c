@@ -42,21 +42,21 @@ void display(struct Queue *q)
     printf("\nFront index -> %d\n", q->front);
     printf("Items -> ");
     int i = q->front;
-    // do
-    // {
-    //   printf("%d ", q->items[i]);
-    //   i = (i + 1) % MAX; // Circular increment
-    // } while (i != (q->rear + 1) % MAX);
-
-    while (1)
+    do
     {
       printf("%d ", q->items[i]);
-      if (i == q->rear)
-      {
-        break;
-      }
       i = (i + 1) % MAX; // Circular increment
-    }
+    } while (i != (q->rear + 1) % MAX);
+
+    // while (1)
+    // {
+    //   printf("%d ", q->items[i]);
+    //   if (i == q->rear)
+    //   {
+    //     break;
+    //   }
+    //   i = (i + 1) % MAX; // Circular increment
+    // }
 
     printf("\nRear index -> %d\n", q->rear);
   }
