@@ -62,6 +62,29 @@ int dequeue(struct Queue* q) {
   }
 }
 
+// Function to get the front element of the queue
+int front(struct Queue* q) {
+  if (isEmpty(q)) {
+      printf("Queue is empty! No front element\n");
+      return -1;
+  }
+  return q->front->data;
+}
+
+// Function to display the queue
+void displayQueue(struct Queue* q) {
+  if (isEmpty(q)) {
+      printf("Queue is empty\n");
+  } else {
+      printf("Queue elements: ");
+      struct Node* current = q->front;
+      while (current != NULL) {
+          printf("%d -> ", current->data);
+          current = current->next;
+      }
+      printf("NULL\n");
+  }
+}
 
 int main (){
 
