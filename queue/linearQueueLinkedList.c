@@ -86,6 +86,24 @@ void displayQueue(struct Queue* q) {
   }
 }
 
-int main (){
+int main() {
+  struct Queue q;
+  initializeQueue(&q);
 
+  enqueue(&q, 10);
+  enqueue(&q, 20);
+  enqueue(&q, 30);
+
+  displayQueue(&q);
+
+  dequeue(&q);
+  displayQueue(&q);
+
+  printf("Front element: %d\n", front(&q));
+
+  dequeue(&q);
+  dequeue(&q);
+  displayQueue(&q);
+
+  return 0;
 }
