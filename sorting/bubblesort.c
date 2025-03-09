@@ -1,5 +1,5 @@
 #include <stdio.h>
-//
+// largest element goes to the last position
 void bubbleSort(int arr[], int n)
 {
   for (int i = 0; i < n - 1; i++) // acess arrary element
