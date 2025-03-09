@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// minimun element comes frist then at the adjacent place and so on
 void selectionSort(int arr[], int n) {
   for (int i = 0 ; i<n-1; i++){ // to determine number of step
     int minIndex = i;
