@@ -2,13 +2,16 @@
 
 void insertionSort(int arr[], int n)
 {
+  // determines size of sorted part ie. last index of sorted part and number of step
   for (int i = 1; i < n; i++)
   {
     int key = arr[i];
     int j = i - 1;
 
+    // Compare key with each element on the left of it until an element (key) smaller than it is found.
     while (j >= 0 && key < arr[j])
     {
+      // shifting
       arr[j + 1] = arr[j];
       j--;
     }
