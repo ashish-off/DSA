@@ -83,14 +83,15 @@ void mergeSort(int arr[], int left, int right)
 
 int main()
 {
-  int arr[] = {12, 22, 13, 5, 6, 7};
+  int arr[] = {34, 22, 1, 55, 6, 7, 6, 3, 1, 12};
+  int size = sizeof(arr) / sizeof(arr[0]);
 
   printf("Original array: \n");
-  printArray(arr, 6);
+  printArray(arr, size);
 
-  mergeSort(arr, 0, 5);
+  mergeSort(arr, 0, size - 1);
   printf("Sorted array: \n");
-  printArray(arr, 6);
+  printArray(arr, size);
 
   return 0;
 }
