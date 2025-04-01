@@ -10,6 +10,7 @@ void printArray(int arr[], int size)
   printf("\n");
 }
 
+// function to merging and sorting
 
 void merge(int arr[], int start , int mid , int end){
   int i = start;
@@ -17,6 +18,7 @@ void merge(int arr[], int start , int mid , int end){
   int k = start;
   int temp[100];
 
+  // Merge two subarrays into temp[]
  while( i <= mid && j<= end )
   {
     if(arr[i] <= arr[j]) {
@@ -29,18 +31,21 @@ void merge(int arr[], int start , int mid , int end){
     k++;
   }
   
+   // Copy remaining elements of left subarray (greater values)
   while( i<= mid ){
     temp[k] = arr[i];
     i++;
     k++;
   }
+
+   // Copy remaining elements of right subarray (greater values)
   while (j <= end) {
     temp[k] = arr[j];
     j++;
     k++;
 }
 
-  
+   // Copy merged elements back to original array
   for (k = start; k <= end; k++) {
     arr[k] = temp[k];
 }
@@ -65,7 +70,7 @@ void mergeSort(int arr[], int start, int end)
 
 int main()
 {
-  int arr[] = {34, 22, 1, 55, 6, 7, 3};
+  int arr[] = {45,6,67,34,7,8,2,4,56,5};
   int size = sizeof(arr) / sizeof(arr[0]);
 
   printf("Original array: \n");
@@ -77,3 +82,7 @@ int main()
 
   return 0;
 }
+
+// Best Case	O(n log n) 
+// Average Case	O(n log n)
+// Worst Case	O(n log n)
