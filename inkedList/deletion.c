@@ -68,11 +68,18 @@ void deleteAtIndex(struct Node **head, int index)
     temp = temp->next;
     i++;
   }
+
+  // If the index is out of bounds, print an error message
+  if (temp == NULL || temp->next == NULL) //(atmost second last traverse)
+  {
+    printf("Error: Index %d is out of bounds.\n", index);
+    return;
+  }
+
   // temp->next = (temp->next)->next;
   struct Node *nodeToDelete = temp->next;
-    temp->next = nodeToDelete->next; 
-    free(nodeToDelete);
-
+  temp->next = nodeToDelete->next;
+  free(nodeToDelete);
 }
 
 void deleteAtEnd(struct Node **head)
@@ -100,37 +107,41 @@ void deleteAtEnd(struct Node **head)
   free((temp->next));
 }
 
-void deleteByValue(struct Node **head, int value){
-  if (*head == NULL) {
+void deleteByValue(struct Node **head, int value)
+{
+  if (*head == NULL)
+  {
     printf("List is empty\n");
     return;
-}
+  }
 
   struct Node *temp = *head;
   struct Node *prev = NULL;
 
-     // If the head node itself holds the value to be deleted
-     if (temp != NULL && temp->data == value) {
-      *head = temp->next; // Move head to the next node
-      free(temp); // Free old head
-      return;
+  // If the head node itself holds the value to be deleted
+  if (temp != NULL && temp->data == value)
+  {
+    *head = temp->next; // Move head to the next node
+    free(temp);         // Free old head
+    return;
   }
 
-   // Search for the node to be deleted
-  while (temp != NULL && temp -> data != value){
+  // Search for the node to be deleted
+  while (temp != NULL && temp->data != value)
+  {
     prev = temp;
-    temp = temp -> next;
+    temp = temp->next;
   }
 
-    // If the value is not found
-  if (temp == NULL){
+  // If the value is not found
+  if (temp == NULL)
+  {
     printf("Value not found in the list\n");
     return;
   }
 
-  prev -> next = temp -> next;
+  prev->next = temp->next;
   free(temp);
-  
 }
 
 int main()
