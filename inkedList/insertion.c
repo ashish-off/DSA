@@ -47,6 +47,13 @@ void insertAtIndex(struct Node **head, int data, int index)
     i++;
   }
 
+  if (temp == NULL)
+  {
+    printf("Error: Index %d is out of bounds.\n", index);
+    free(newNode); // Free the allocated memory for the new node
+    return;
+  }
+
   newNode->next = temp->next;
   temp->next = newNode;
 }
