@@ -16,9 +16,16 @@ void push(struct Node** top, int data) {
   struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
   newNode->data = data;
   newNode->next = NULL;
+  if(isEmpty(*top)) // if the stack is empty
+    {
+        *top = newNode;
+        return;
+    }
+  else{
     newNode->next = *top; 
     *top = newNode;      
     printf("%d pushed\n", data);
+  }
 }
 
 // Function to pop an element from the stack
